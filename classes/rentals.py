@@ -1,11 +1,15 @@
 from classes.rental import Rental
-from classes.user import User
 from utils.validateinput import validate_empty_input
+import utils.fileutil as fileutil
+from pathlib import Path
+import os
+
+filepath = Path(os.getcwd()) / "data" / "rentals.json"
 
 
 class Rentals:
     def __init__(self, books, users) -> None:
-        self.rentals = []
+        self.rentals = fileutil.read_from_file(filepath) or []
         self.books = books
         self.users = users
 
@@ -28,6 +32,7 @@ class Rentals:
         rental = Rental(book, user)
         print(str(rental))
         self.rentals.append(rental)
+        fileutil.write_to_file(filepath, self.rentals)
 
     def list_rentals(self):
         if len(self.rentals) == 0:
