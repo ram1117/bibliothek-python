@@ -17,12 +17,11 @@ class Users:
         for x in self.users:
             print("******* Users *******\n")
             print(str(x))
-        return
 
     def add_user(self):
         print("Do you want to add [1]Student [2]Staff\n")
         usertype = input("Enter Option:\n")
-        print(f"{usertype} entered option")
+
         if usertype == "1":
             self.add_student()
         elif usertype == "2":

@@ -1,8 +1,8 @@
 def validate_empty_input(fieldName):
     userinput = input(f"Enter {fieldName}:\n")
     while isEmpty(userinput):
-        print(f"Please a valid input for {fieldName}\n")
-        userinput = input("\n")
+        print(f"Please enter valid input for {fieldName}\n")
+        userinput = input("")
     return userinput
 
 
